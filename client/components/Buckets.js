@@ -48,6 +48,7 @@ class Buckets extends React.Component {
     }
 
     addBucket = (name) => {
+        console.log("add bucket");
         $.ajax({
             url: '/buckets',
             type: 'POST',
@@ -69,9 +70,14 @@ class Buckets extends React.Component {
                 />
             )
         });
+        console.log("before return");
         return(
             <div>
-                <Form add={this.addBucket} placeholder="Add Bucket" />
+                <Form 
+                    add={this.addBucket} 
+                    placeholder="Add Bucket" 
+                    placeholderCat="Enter Category"
+                />
                 <div className="row">
                     {buckets}
                 </div>
