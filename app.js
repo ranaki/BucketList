@@ -9,7 +9,8 @@ var mongoose = require('mongoose');
 mongoose.connect( 'mongodb://localhost/bucket-list-assigmnt' );
 
 var index = require('./routes/index');
-// var users = require('./routes/users');
+var buckets = require('./routes/buckets');
+var users = require('./routes/users');
 var app = express();
 
 // view engine setup
@@ -26,7 +27,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/materialize', express.static(__dirname + '/node_modules/materialize-css/dist/js/'));
 app.use('/jquery', express.static(__dirname + '/node_modules/materialize-css/node_modules/jquery/dist/'));
 app.use('/', index);
-// app.use('/users', users);
+app.use('/buckets', buckets);
+app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
