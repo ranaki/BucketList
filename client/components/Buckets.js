@@ -48,6 +48,7 @@ class Buckets extends React.Component {
     }
 
     addBucket = (name) => {
+        console.log("entering addBucket");
         $.ajax({
             url: '/buckets',
             type: 'POST',
