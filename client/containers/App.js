@@ -14,7 +14,9 @@ class App extends React.Component {
     return (
       <div>
         <Nav />
-        <Buckets />
+        <div className="container">
+          <Buckets />
+        </div>
       </div>
     );
   }

@@ -47,9 +47,10 @@ class Buckets extends React.Component {
         });
     }
 
-    addBucket = (name, category) => {
+    addBucket = (name, category, radioVal) => {
         console.log("add bucket name: " + name);
         console.log("add bucket category: " + category);
+        console.log("radio button value: " + radioVal );
         $.ajax({
             url: '/buckets',
             type: 'POST',
