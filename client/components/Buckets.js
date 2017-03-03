@@ -47,12 +47,13 @@ class Buckets extends React.Component {
         });
     }
 
-    addBucket = (name) => {
-        console.log("add bucket");
+    addBucket = (name, category) => {
+        console.log("add bucket name: " + name);
+        console.log("add bucket category: " + category);
         $.ajax({
             url: '/buckets',
             type: 'POST',
-            data: {name}
+            data: {name, category}
         }).done(bucket => {
             this.setState({ buckets: [...this.state.buckets, bucket]})
         });

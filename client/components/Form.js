@@ -7,7 +7,7 @@ const Form = ({ add, placeholder, placeholderCat }) => {
     return (
         <form onSubmit={ e => {
           e.preventDefault();
-          add(input.value)
+          add(input.value, inputCat.value)
           input.value = null;
           inputCat.value = null;
 
@@ -20,8 +20,10 @@ const Form = ({ add, placeholder, placeholderCat }) => {
             placeholder={placeholderCat}
             ref={n => inputCat = n }
           />
+          <input type='submit' className="btn" />
         </form>
     )
 }
 
 export default Form;
+

@@ -12,7 +12,8 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
 //   console.log("New bucket: " + req.body.name)
   new Bucket({
-    name: req.body.name
+    name: req.body.name,
+    category: req.body.category
   }).save( (err, bucket) => {
     res.json(bucket);
   });
