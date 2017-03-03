@@ -11,7 +11,7 @@ const Form = ({ add, placeholder, placeholderCat }) => {
       <div>
         <form onSubmit={ e => {
           e.preventDefault();
-          add(input.value, inputCat.value, radioSel.value)
+          add(input.value, inputCat.value)
           input.value = null;
           inputCat.value = null;
 
@@ -24,12 +24,6 @@ const Form = ({ add, placeholder, placeholderCat }) => {
             placeholder={placeholderCat}
             ref={n => inputCat = n }
           />
-          <input ref={r => radioSel = r } name="category" type="radio" id="food" value="food" />
-            <label htmlFor="food">Food</label>
-          <input ref={r => radioSel = r }  name="category" type="radio" id="career" value="career" />
-            <label htmlFor="career">Career</label>
-          <input ref={r => radioSel = r }  name="category" type="radio" id="travel" value="travel" />
-            <label htmlFor="travel">Travel</label>
           <p>
             <input type='submit' className="btn" />
           </p>

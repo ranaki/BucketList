@@ -35,7 +35,7 @@ class Bucket extends React.Component {
     render() {
       let {deleteBucket, _id} = this.props;
         return(
-            <div className="col s12 m3">
+            <div className="col s12 m4">
               <div className="card blue-grey darken-1">
                 <div className="card-content white-text">
                   {this.showEdit()}
@@ -45,6 +45,7 @@ class Bucket extends React.Component {
                     { this.state.edit ? 'Cancel' : 'Edit' }
                   </a>
                   <a onClick={ () => deleteBucket(_id) }>Delete</a>
+                  <a href={`/boards/${_id}`}>List Items</a>
                 </div>
               </div>
             </div>
