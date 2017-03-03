@@ -11,16 +11,14 @@ class Bucket extends React.Component {
       this.setState({ edit: !this.state.edit });
     }
 
-    
-
     showEdit = () => {
-      let {name, _id} = this.props;
+      let {name, updateBucket, _id} = this.props;
       if (this.state.edit) {
         return (
         <form
             onSubmit={ e => {
             e.preventDefault()
-            updateBoard({ _id, name: this.input.value })
+            updateBucket({ _id, name: this.input.value })
             this.input.value = null;
             this.toggleEdit()
           }}
@@ -41,7 +39,11 @@ class Bucket extends React.Component {
                 <div className="card-content white-text">
                   {this.showEdit()}
                 </div>
-                  <h3>A Bucket</h3>
+                <div className="card-action">
+                  <a onClick={this.toggleEdit}>
+                    { this.state.edit ? 'Cancel' : 'Edit' }
+                  </a>
+                </div>
               </div>
             </div>
         )

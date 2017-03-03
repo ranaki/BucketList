@@ -21,6 +21,23 @@ class Buckets extends React.Component {
         });
     }
 
+    updateBucket = (bucket) => {
+    let { _id, name } = bucket;
+    $.ajax({
+      url: `/buckets/${_id}`,
+      type: 'PUT',
+      data: { name }
+    }).done( bucket => {
+      let buckets = this.state.buckets.map( b => {
+        if (b._id === _id)
+          return bucket
+        return b
+      });
+
+      this.setState({ buckets });
+    });
+  }
+
     addBucket = (name) => {
         $.ajax({
             url: '/buckets',
@@ -37,6 +54,7 @@ class Buckets extends React.Component {
             return(
                 <Bucket
                     key={bucket._id}
+                    updateBucket={this.updateBucket}
                     {...bucket}
                 />
             )
