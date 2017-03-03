@@ -12,7 +12,7 @@ class Bucket extends React.Component {
     }
 
     showEdit = () => {
-      let {name, updateBucket, _id} = this.props;
+      let {name, updateBucket, category, _id} = this.props;
       if (this.state.edit) {
         return (
         <form
@@ -27,7 +27,7 @@ class Bucket extends React.Component {
         </form>
         )
       } else {
-        return(<span className="card-title">{name}</span>)
+        return(<span className="card-title">{name}-({category})</span>)
       }
 
     }

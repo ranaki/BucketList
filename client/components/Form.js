@@ -23,6 +23,12 @@ const Form = ({ add, placeholder, placeholderCat }) => {
             placeholder={placeholderCat}
             ref={n => inputCat = n }
           />
+            <input name="category" type="radio" id="food" selected/>
+              <label htmlFor="food">Food</label>
+            <input name="category" type="radio" id="career" />
+              <label htmlFor="career">Career</label>
+            <input className="with-gap" name="category" type="radio" id="travel"  />
+              <label htmlFor="travel">Travel</label>
 
           {/*  
           <select ref={s => selval = s} >
@@ -31,8 +37,9 @@ const Form = ({ add, placeholder, placeholderCat }) => {
             <option value="career">Career</option>
           </select>
           */}
-
-          <input type='submit' className="btn" />
+          <p>
+            <input type='submit' className="btn" />
+          </p>
         </form>
       </div>
     )
