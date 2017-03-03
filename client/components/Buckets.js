@@ -36,7 +36,16 @@ class Buckets extends React.Component {
 
       this.setState({ buckets });
     });
-  }
+    }
+
+    deleteBucket = (id) => {
+        $.ajax({
+            url: `/buckets/${id}`,
+            type: 'DELETE'
+        }).done( () => {
+            this.setState({ buckets: this.state.buckets.filter( b => b._id !== id ) });
+        });
+    }
 
     addBucket = (name) => {
         $.ajax({
@@ -55,6 +64,7 @@ class Buckets extends React.Component {
                 <Bucket
                     key={bucket._id}
                     updateBucket={this.updateBucket}
+                    deleteBucket={this.deleteBucket}
                     {...bucket}
                 />
             )

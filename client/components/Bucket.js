@@ -33,6 +33,7 @@ class Bucket extends React.Component {
     }
 
     render() {
+      let {deleteBucket, _id} = this.props;
         return(
             <div className="col s12 m3">
               <div className="card blue-grey darken-1">
@@ -43,6 +44,7 @@ class Bucket extends React.Component {
                   <a onClick={this.toggleEdit}>
                     { this.state.edit ? 'Cancel' : 'Edit' }
                   </a>
+                  <a onClick={ () => deleteBucket(_id) }>Delete</a>
                 </div>
               </div>
             </div>

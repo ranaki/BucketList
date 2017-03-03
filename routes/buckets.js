@@ -18,15 +18,23 @@ router.post('/', (req, res) => {
   });
 });
 
- router.put('/:id', (req, res) => {
-    let { name } = req.body;
-    Bucket.findByIdAndUpdate(
-        req.params.id,
-        { $set: { name }},
-        { new: true },
+router.put('/:id', (req, res) => {
+  let { name } = req.body;
+  Bucket.findByIdAndUpdate(
+      req.params.id,
+      { $set: { name }},
+      { new: true },
       (err, bucket) => {
-        res.json(bucket);
-    });
+      res.json(bucket);
+  });
  });
+
+router.delete('/:id', (req, res) => {
+  let bucketId = req.params.id;
+  Bucket.findById(bucketId, (err, bucket) => {
+    bucket.remove();
+    res.status(200).send({success: true});
+  });
+});
 
 module.exports = router;
