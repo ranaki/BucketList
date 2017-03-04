@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const Bucket = require('../models/bucket');
+const List = require('../models/list');
+const Card = require('../models/card');
 
 router.get('/', (req, res) => {
   console.log("buckets here");
@@ -35,6 +37,14 @@ router.delete('/:id', (req, res) => {
     bucket.remove();
     res.status(200).send({success: true});
   });
+});
+
+
+router.get('/:id', (req, res) => {
+  console.log("get bucket by id")
+  Bucket.findById(req.params.id, (err, bucket) => {
+    res.render('bucket', { bucket })
+  })
 });
 
 module.exports = router;

@@ -4,16 +4,16 @@ const List = require('../models/list');
 const Card = require('../models/card');
 
 router.get('/', (req, res) => {
-  List.find({ boardId: req.query.boardId }, ( err, boards ) => {
-    res.json(boards);
+  List.find({ bucketId: req.query.bucketId }, ( err, buckets ) => {
+    res.json(buckets);
   });
 });
 
 router.post('/', (req, res) => {
-  let { boardId, name } = req.body;
+  let { bucketId, name } = req.body;
   new List({
     name,
-    boardId
+    bucketId
   }).save( (err, list) => {
     res.json(list);
   });

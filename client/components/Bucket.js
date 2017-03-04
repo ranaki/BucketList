@@ -45,7 +45,7 @@ class Bucket extends React.Component {
                     { this.state.edit ? 'Cancel' : 'Edit' }
                   </a>
                   <a onClick={ () => deleteBucket(_id) }>Delete</a>
-                  <a href={`/boards/${_id}`}>List Items</a>
+                  <a href={`/buckets/${_id}`}>List Items</a>
                 </div>
               </div>
             </div>

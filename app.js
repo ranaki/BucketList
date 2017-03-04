@@ -10,6 +10,8 @@ mongoose.connect( 'mongodb://localhost/bucket-list-assigmnt' );
 
 var index = require('./routes/index');
 var buckets = require('./routes/buckets');
+var lists = require('./routes/lists');
+var cards = require('./routes/cards');
 var users = require('./routes/users');
 var app = express();
 
@@ -28,6 +30,8 @@ app.use('/materialize', express.static(__dirname + '/node_modules/materialize-cs
 app.use('/jquery', express.static(__dirname + '/node_modules/materialize-css/node_modules/jquery/dist/'));
 app.use('/', index);
 app.use('/buckets', buckets);
+app.use('/lists', lists);
+app.use('/cards', cards);
 app.use('/users', users);
 
 // catch 404 and forward to error handler
